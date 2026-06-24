@@ -1,0 +1,168 @@
+body { 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  margin: 20px; 
+  
+  /* This creates a subtle dark overlay so the white boxes "pop" more */
+  background: linear-gradient(rgba(240, 242, 245, 0.7), rgba(240, 242, 245, 0.7)), 
+              url('back.jpg');
+              
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h1 { color: #333; text-align: center; }
+
+.box {
+  /* Change background: white; to this: */
+  background: rgba(255, 255, 255, 0.4); 
+  backdrop-filter: blur(5px); /* Blurs the background image slightly behind the box */
+  
+  /* Keep your other styles (border, padding, width: max-content, etc.) */
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  display: inline-block;
+  min-width: 100%;
+  width: max-content;
+}
+
+
+
+table {
+  border-collapse: collapse;
+  /* REMOVE: width: 100% */
+  /* REMOVE: overflow: hidden */
+  
+  width: auto;           /* Table takes exactly the space it needs */
+  min-width: 100%;       /* But still fills the screen if there's only one house */
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.budget-positive { color: #2e7d32; font-weight: bold; }
+.budget-negative { color: #c62828; font-weight: bold; }
+
+
+td, th {
+  border: 1px solid #eee;
+  padding: 12px;
+  vertical-align: top;
+  text-align: center;
+  
+  /* FORCE the table to grow right instead of squeezing */
+  white-space: nowrap; 
+}
+
+/* 4. Override white-space for report cells so they don't become infinitely wide */
+.report-inline, .metric-cell {
+  white-space: normal; /* Allows the reports to wrap text normally */
+  min-width: 250px; 
+  max-width: 400px; /* Keeps the reports from getting too wide */
+}
+
+th { background: #f8f9fa; color: #666; font-weight: 600; }
+
+/* Allow the text-heavy reports to wrap, but give them a fixed width */
+.metric-cell, 
+.report-inline {
+  white-space: normal !important; 
+  min-width: 250px; 
+  max-width: 400px; /* This prevents the report from pushing the page too far */
+  text-align: left;
+}
+
+.metric-label-bg {
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  transition: background 0.3s, color 0.3s;
+}
+
+.weight-ctrl {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+}
+.weight-ctrl input {
+  width: 80px;
+  cursor: pointer;
+}
+.weight-val {
+  font-size: 11px;
+  font-family: monospace;
+  width: 25px;
+  text-align: right;
+}
+
+.hidden { display: none !important; }
+
+.info-btn {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: #1e88e5;
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  font-family: serif;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 16px;
+  cursor: pointer;
+  margin-left: 5px;
+  border: 1px solid #fff;
+}
+
+.source-btn {
+  display: inline-block;
+  padding: 4px 8px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 10px;
+  color: #666;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+
+.risk-low { background-color: #d4edda; color: #155724; font-weight: bold; }
+.risk-med { background-color: #fff3cd; color: #856404; font-weight: bold; }
+.risk-high { background-color: #f8d7da; color: #721c24; font-weight: bold; }
+
+.report-inline {
+  font-size: 11px;
+  text-align: left;
+  background: #fdfdfd;
+  border: 1px solid #ddd;
+  padding: 8px;
+  margin-top: 8px;
+  border-radius: 4px;
+  color: #444;
+  line-height: 1.3;
+  display: block;
+}
+
+.house-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.rank-badge {
+  display: inline-block;
+  background: #333;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  margin-bottom: 5px;
+}

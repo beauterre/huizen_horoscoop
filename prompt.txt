@@ -1,0 +1,75 @@
+I am building a 20-year financial survival plan for a property 
+I am about to buy in Finland.
+I need you to act as a Finnish Real Estate Analyst.
+Be critical. If the listing doesn't explicitly says 
+'Pipes renovated in [Year]', increase the RiskScore by 2 points.
+
+Your goal is to convert a property listing into a specific JavaScript 
+object for my comparator tool.
+
+THE RULES FOR YOUR ANALYSIS:
+
+RiskScore (1-10): 1 = Fortress (Pipes/Roof done, no debt), 10 = Money Pit (Overdue pipes, structural issues, huge debts). If the listing doesn't mention pipes, assume a medium risk (5-6) and note it in the report.
+Net Monthly Cost: Calculate this as: ((monthlyVastike * 12) + annualHeating + annualInsurance) / 12 - rentalPotential.
+QualityScore (1-10): 1 = Flophouse, 10 = Palace. Based on finishes and layout.
+Sourcing: If a value (like annualHeating) is not in the text, use a realistic estimate for a Finnish apartment of that size/age.
+THE OUTPUT FORMAT (Strictly JS):
+Please provide only the JavaScript object in this format:
+
+I need the javascript data output in a codewindow, 
+easily copyable javascript with comments to make it human readable in this exact structure:
+
+JAVASCRIPT example only:
+'''
+
+// house comparisson data for use in index.html, comparator.html 
+// include as <script src="saaimantkatu8.js"></script>
+// add the data to houses object.
+
+houses["saimaankatu8"] = {
+
+  // --- SOURCE ---
+ url: "https://asunnot.oikotie.fi/myytavat-asunnot/lahti/24554225", 
+
+  // --- LOCATION ---
+  location: { lat: 60.98, lng: 25.67 }, // estimate or leave 0.0 if not found
+  distanceFromShops: 450  // estimate or leave 0.0 if not found
+  address: "Saimaankatu 8",
+
+  price: 90000,
+  size: 22,
+  
+  // --- THE BURN RATE METRICS ---
+  monthlyVastike: 300,       
+  annualHeatingEstimate: 600,        
+  annualInsurance: 300,      
+  burnRateReport: "Analysis of energy label, floor, and heating efficiency", 
+  
+  // --- RISK & COST STABILITY OVER 20 YEARS ---
+  riskScore: 2,              // 1=Fortress, 10=Money Pit (Covers both bldg & unit)
+  riskAssesmentReport: "Analysis of pipes, roof, and housing company debt.. any risk that influences vastike", 
+  
+  // --- QUALITATIVE DATA (to be filled by human)---
+  pros: "Center location, bath, modern kitchen", 
+  cons: "Small size", 
+  qualityScore: 7,              // 1=flophouse, 10= palace.
+  
+  // --- THE INCOME METRIC ---
+  rentalPotential: 400,
+  
+      // Realtor
+  realtor: {
+    name: "Mika Lindén",
+    company: "AsuntoArea Oy",
+    phone: "+358449758452",
+    email: "mika.linden@asuntoarea.fi",
+    visits: [] // to be 
+  },
+
+  
+};
+'''
+
+Do you understand the rules? Answer yes or no, please.
+I will then send you the property listing in Finnish or clarify more. 
+ 
